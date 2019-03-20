@@ -1,5 +1,11 @@
-FROM alpine
+FROM python:2.7
 
-COPY quickstart.sh /
+COPY . /app
 
-CMD ["/quickstart.sh"]
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+ENTRYPOINT ["python"]
+
+CMD ["hello.py"]
